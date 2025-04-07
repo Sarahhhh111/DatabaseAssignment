@@ -64,3 +64,5 @@ async def get_scores():
         doc["_id"] = str(doc["_id"])  # Convert ObjectId to string
         scores.append(doc)
     return scores
+
+app = app
