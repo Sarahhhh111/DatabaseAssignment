@@ -1,6 +1,6 @@
 ~ Game Assets API – Database Essentials Assignment
 
-This project is a RESTful API created using FastAPI and Python. It is designed to manage multimedia game assets such as sprites, audio files, and player scores. It connects to a MongoDB Atlas cloud database.
+This project is a RESTful API created using FastAPI and Python. It allows uploading and retrieving sprites, audio files, and player scores, all stored in a MongoDB Atlas cloud database. The project is deployed using Railway for public access and tested locally using Postman.
 
 ---
 
@@ -11,8 +11,11 @@ This project is a RESTful API created using FastAPI and Python. It is designed t
 - Uvicorn
 - Pydantic
 - Motor (MongoDB async driver)
+- Pydantic
 - Python-dotenv
 - MongoDB Atlas
+- Postman (API Testing)
+- Railway 
 - Git (for version control)
 
 ---
@@ -41,7 +44,28 @@ pip freeze > requirements.txt
 
 ---
 
+~ Deployment
+
+The API is publicly deployed via Railway at:
+https://databaseassignment-production.up.railway.app
+
+You can test the API using Postman or access interactive docs at:
+https://databaseassignment-production.up.railway.app/docs
+
+https://databaseassignment-production.up.railway.app/sprites
+https://databaseassignment-production.up.railway.app/audio
+https://databaseassignment-production.up.railway.app/scores
+
+---
+
 ~ Documentation
+
+- Database Secuity
+    - Secure Credentials: Used .env file and os.environ.get("MONGO_URI") to protect the MongoDB URI.
+    - IP Whitelisting: Only specific IPs (e.g., Railway deployment server) are allowed in MongoDB Atlas.
+    - Injection Prevention: Inputs are sanitized via Pydantic’s validation. Extra fields are disallowed using:
+        class Config:
+         extra = "forbid"
 
 - Setup
     - FastAPI is used to create a modern RESTful API with automatic documentation.
@@ -106,8 +130,12 @@ pip freeze > requirements.txt
         - Fetches all documents from the score collection.
         - Converts ObjectIds to strings for easy JSON display.
 
+---
 
+FINAL NOTE:
+imp urls:
+Public Git URL	Your GitHub repo link → https://github.com/Sarahhh111/DatabaseAssignment
+Public API URL	Railway deployed API → https://databaseassignment-production.up.railway.app
 
-
-
-
+Thank you for reading!
+-Sarah Galea
