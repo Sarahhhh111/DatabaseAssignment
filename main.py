@@ -6,12 +6,7 @@ from bson import ObjectId
 app = FastAPI()
 
 # Connect to Mongo Atlas
-# client = motor.motor_asyncio.AsyncIOMotorClient("mongodb+srv://admin:admin123@de-cluster.4ayns.mongodb.net/test")
-
-import os
-mongo_uri = os.environ.get("MONGO_URI")
-client = motor.motor_asyncio.AsyncIOMotorClient(mongo_uri)
-
+client = motor.motor_asyncio.AsyncIOMotorClient("mongodb+srv://admin:admin123@de-cluster.4ayns.mongodb.net/test")
 db = client.game_assets_api
 
 # Model for player scores
@@ -69,4 +64,3 @@ async def get_scores():
         doc["_id"] = str(doc["_id"])  # Convert ObjectId to string
         scores.append(doc)
     return scores
-
